@@ -38,12 +38,13 @@ quantity = Integer.parseInt(userInput.nextLine());
                 prricePerDozen = 7.99;
             }
 
-          //  if(quantity >=5){
-           //     discount = .1;
-//            }
+            if(quantity >= 5)
+            {
+                discount = .1;
+            }
 
-     totalPrice = prricePerDozen * quantity;
-          //  discount -= totalPrice * quantity;
+            totalPrice = prricePerDozen * quantity;
+            totalPrice -= totalPrice * discount;
 
             System.out.println("Order from " + name);
             System.out.println("Order total: " + totalPrice);
