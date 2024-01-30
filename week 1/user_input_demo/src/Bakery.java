@@ -9,7 +9,9 @@ public class Bakery
             String name;
             String type;
             double prricePerDozen;
+            double totalPrice;
             int quantity;
+            double discount = 0;
 
             System.out.println("Cookies");
             System.out.println("(S)ugar - $5.99 / dz");
@@ -28,6 +30,23 @@ quantity = Integer.parseInt(userInput.nextLine());
 
             System.out.println(type);
             System.out.println(quantity);
+
+            if (type.equalsIgnoreCase("s"))
+            {
+                prricePerDozen = 5.99;
+            } else {
+                prricePerDozen = 7.99;
+            }
+
+          //  if(quantity >=5){
+           //     discount = .1;
+//            }
+
+     totalPrice = prricePerDozen * quantity;
+          //  discount -= totalPrice * quantity;
+
+            System.out.println("Order from " + name);
+            System.out.println("Order total: " + totalPrice);
 
         }
 
