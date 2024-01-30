@@ -26,7 +26,7 @@ System.out.println("area of the circle is " + circleArea);
             System.out.println("square root of the variable is " + squareRootNumber);
             System.out.println("--------------------");
 
-// Question 5: distance between points (5,10) and (85,50)// d = (x2,y2)^2 - (x1,y1)^2
+// Question 5: distance between points (5,10) and (85,50)// d = (x2 - x1)^2 + (y2-y1)^2
             int x2 = 85;
             int x1 = 5;
             int y2 = 50;
