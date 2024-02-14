@@ -1,0 +1,39 @@
+
+// vars
+pickupDate 
+rentalDays 
+tollTagInput 
+hasTollTag 
+gpsInput  
+roadsideAssistanceInput 
+age 
+basicRentalCost 
+underageSurcharge 
+addOnsCost 
+
+// prompts
+        // pick up date
+        //number of days
+        // electronic toll - 3.95 a day y/n
+        // gps - 2.95 a day y/n
+        // roadside assistant - 3.95 a day y/n
+        // current age
+
+// calculate
+
+        basicRentalCost = 29.99 * rentalDays
+
+        toll - addOnsCost += 3.95 * rentalDays;
+        GPS - addOnsCost += 2.95 * rentalDays;
+        RoadsideAssistance - addOnsCost += 3.95 * rentalDays;
+
+        // Calculate total cost
+        totalCost = basicRentalCost + optionsCost + underageSurcharge;
+
+
+// display
+
+         // basic car rental - 29.99 a day
+        // option cost
+        // underage driver surcharge - 30% under 25
+        // total cost
