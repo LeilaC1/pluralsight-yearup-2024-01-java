@@ -1,9 +1,13 @@
 package com.plurasight;
 
+import java.io.File;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 public class Dealership {
+    private static final String FILE_PATH = "data/vehicles.csv";
 
     private String name;
     private String address;
@@ -16,8 +20,51 @@ public class Dealership {
         this.number = number;
         this.vehicles = new ArrayList<>();
     }
+public static Dealership getDealership(){
+
+    Dealership dealership = new Dealership("Name", "Address", "Number");
+        ArrayList<Vehicle> vehicles = new ArrayList<>();
+    File filename = new File(FILE_PATH);
 
 
+
+
+    try (Scanner scanner = new Scanner(filename)) {
+
+        while (scanner.hasNext()) {
+            String line = scanner.nextLine();
+            String[] columns = line.split(",");
+
+            // vin,dealer,id,year,make,model,type, color,miles,price
+            int vin = Integer.parseInt(columns[0]);
+            int dealer = Integer.parseInt(columns[1]);
+            String make = columns[2];
+            String model = columns[3];
+            int year = Integer.parseInt(columns[4]);
+            double price = Double.parseDouble(columns[5]);
+            String color = columns[6];
+            int mileage = Integer.parseInt(columns[7]);
+            String type = columns[8];
+
+            Vehicle vehicle = new Vehicle(11236, 2,2005, "Nissan", "Patrol", "SUV", "White",70000, 500.85 );
+            vehicles.add(vehicle);
+        }
+        // java.io
+    } catch (IOException ex) {
+    }
+
+    dealership.vehicles = vehicles;
+
+
+
+    return dealership;
+}
+
+
+
+    public void saveDealership(){
+
+ }
     // public List<Vehicle>??
     public double getVehiclesByPrice() {
 return 0;
@@ -46,8 +93,8 @@ return 0;
         return null;
 
     }
-    public void addVehicle() {
-       // vehicles.add();
+    public void addVehicle(Vehicle vehicle) {
+        vehicles.add(vehicle);
     }
 
     public void removeVehicles() {
