@@ -1,21 +1,23 @@
 package com.plurasight;
 
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
     private Dealership dealership;
     Scanner scanner = new Scanner(System.in);
 
-public UserInterface(){
+    public UserInterface() {
 
-}
-private void init(){
-    DealershipFileManager fileManager = new DealershipFileManager();
-    this.dealership = fileManager.getDealership();
-}
+    }
 
-    public void display(){
+    private void init() {
+        DealershipFileManager fileManager = new DealershipFileManager();
+        this.dealership = fileManager.getDealership();
+    }
+
+    public void display() {
         init();
         // loop/switch
         while (true) {
@@ -51,15 +53,18 @@ private void init(){
                     processRemoveVehicleRequest();
                     break;
                 case 0:
-                    System.out.println("quiting...");
+                    System.out.println("Quiting...");
                     return;
                 default:
-                    System.out.println("try again please");
+                    System.out.println("Try again please!");
             }
         }
-}
+    }
+
+    // menu
     private void displayMenu() {
-        System.out.println("----- Menu -----");
+        System.out.println("----- // Menu // -----");
+        System.out.println("--------------------------");
         System.out.println("1. Get vehicles by price");
         System.out.println("2. Get vehicles by make and model");
         System.out.println("3. Get vehicles by year");
@@ -70,38 +75,57 @@ private void init(){
         System.out.println("8. Add a vehicle");
         System.out.println("9. Remove a vehicle");
         System.out.println("0. Quit");
-        System.out.print("Enter your choice: ");
+        System.out.print("Please enter your preferred search method: ");
     }
 
-public void processGetByPriceRequest(){
+    // display vehicles
+
+    private void displayVehicles(ArrayList<Vehicle> vehicles) {
+        System.out.println("----- // Vehicles // -----");
+        System.out.println("--------------------------");
+// loop through array
+        for (Vehicle vehicle : vehicles) {
+            System.out.println(vehicle);
+        }
+    }
+
+
+    public void processGetByPriceRequest() {
+
+    }
+
+    public void processGetByMakeModelRequest() {
+
+    }
+
+    public void processGetByYearRequest() {
+
+    }
+
+    public void processGetByColorRequest() {
+
+    }
+
+    public void processGetByMileageRequest() {
+
+    }
+
+    public void processGetByVehicleTypeRequest() {
+
+    }
+
+    public void processGetAllVehiclesRequest() {
+        ArrayList<Vehicle> all = dealership.getVehicles();
+        displayVehicles(all);
+    }
+
+    public void processAddVehicleRequest() {
+
+    }
+
+    public void processRemoveVehicleRequest() {
+
+    }
 
 }
-        public void processGetByMakeModelRequest(){
-
-        }
-        public void processGetByYearRequest(){
-
-        }
-        public void processGetByColorRequest(){
-
-        }
-        public void processGetByMileageRequest(){
-
-        }
-        public void processGetByVehicleTypeRequest(){
-
-        }
-        public void processGetAllVehiclesRequest(){
-
-        }
-
-        public void processAddVehicleRequest(){
-
-        }
-
-        public void processRemoveVehicleRequest(){
-
-        }
-
-    }
 
