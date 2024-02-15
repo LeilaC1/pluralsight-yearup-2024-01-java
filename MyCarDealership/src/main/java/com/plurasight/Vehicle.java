@@ -11,8 +11,7 @@ public class Vehicle {
     private int odometer;
     private double price;
 
-    public Vehicle(int vin,int dealer, int year, String make, String model, String vehicleType, String color,
-                      int odometer, double price) {
+    public Vehicle(int vin, int dealer, String make, String model, int year, double price, String color, int mileage, String type) {
 
     }
 

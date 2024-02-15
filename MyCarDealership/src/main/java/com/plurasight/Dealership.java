@@ -21,6 +21,7 @@ public class Dealership {
         this.vehicles = new ArrayList<>();
     }
 public static Dealership getDealership(){
+        // try using sql database later
 
     Dealership dealership = new Dealership("Name", "Address", "Number");
         ArrayList<Vehicle> vehicles = new ArrayList<>();
@@ -46,14 +47,14 @@ public static Dealership getDealership(){
             int mileage = Integer.parseInt(columns[7]);
             String type = columns[8];
 
-            Vehicle vehicle = new Vehicle(11236, 2,2005, "Nissan", "Patrol", "SUV", "White",70000, 500.85 );
+            Vehicle vehicle = new Vehicle(vin, dealer, make, model, year, price, color, mileage, type);
             vehicles.add(vehicle);
-        }
+            }
         // java.io
     } catch (IOException ex) {
     }
 
-    dealership.vehicles = vehicles;
+    dealership.setVehicles(vehicles);
 
 
 
@@ -62,10 +63,18 @@ public static Dealership getDealership(){
 
 
 
-    public void saveDealership(){
+    // getter and setter for vehicles
+    public ArrayList<Vehicle> getVehicles() {
+        return vehicles;
+    }
 
- }
-    // public List<Vehicle>??
+    public void setVehicles(ArrayList<Vehicle> vehicles) {
+        this.vehicles = vehicles;
+
+    }
+
+    // other methods
+    // public Arraylist<Vehicle>??
     public double getVehiclesByPrice() {
 return 0;
     }
