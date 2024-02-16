@@ -4,7 +4,12 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+Dealership dealership = new Dealership("My Dealership", "123 Car Wonderland", "333-444-7777");
+        UserInterface user = new UserInterface(dealership);
+        user.display();
+
+
+
         // requirements
 // prompt for search by and display (price, make/model, year range, color, mileage, type, all)
         // list all
@@ -13,8 +18,7 @@ public class Program {
         // quit
 
 
-        System.out.print("Do you want by: (P)rice, (M)ake/model, or (C)olor? ");
-        String searchBy = scanner.nextLine().strip();
+
 
 
     }

@@ -8,8 +8,8 @@ public class UserInterface {
     private Dealership dealership;
     Scanner scanner = new Scanner(System.in);
 
-    public UserInterface() {
-
+    public UserInterface(Dealership dealership) {
+        this.dealership = dealership;
     }
 
     private void init() {
@@ -84,8 +84,9 @@ public class UserInterface {
         System.out.println("----- // Vehicles // -----");
         System.out.println("--------------------------");
 // loop through array
-        for (Vehicle vehicle : vehicles) {
-            System.out.println(vehicle);
+        for (int i = 0; i < vehicles.size(); i++) {
+            System.out.println("Vehicle " + (i + 1) + ":");
+            System.out.println(vehicles.get(i));
         }
     }
 

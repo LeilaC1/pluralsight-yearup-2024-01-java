@@ -2,7 +2,6 @@ package com.plurasight;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -67,7 +66,6 @@ public class Dealership {
 
     public void setVehicles(ArrayList<Vehicle> vehicles) {
         this.vehicles = vehicles;
-
     }
 
     // other methods

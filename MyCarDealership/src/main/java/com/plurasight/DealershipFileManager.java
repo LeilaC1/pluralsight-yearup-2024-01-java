@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class DealershipFileManager {
     private static final String FILE_PATH = "data/vehicles.csv";
+    private Dealership dealership;
 
     public Dealership getDealership() {
         Dealership dealership = null;
@@ -21,11 +22,9 @@ public class DealershipFileManager {
 
             dealership = new Dealership(name, address, number);
 
-
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 String[] columns = line.split(",");
-
 
                 // vin,dealer,id,year,make,model,type, color,miles,price
                 int vin = Integer.parseInt(columns[0]);
@@ -44,11 +43,8 @@ public class DealershipFileManager {
 
             dealership.setVehicles(vehicles);
 
-
-            // java.io
         } catch (IOException ex) {
         }
-
 
         return dealership;
     }
