@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DealershipFileManager {
-    private static final String FILE_PATH = "data/vehicles.csv";
+    private static final String FILE_PATH = "data/inventory.csv";
     private Dealership dealership;
 
     public Dealership getDealership() {
@@ -16,11 +16,18 @@ public class DealershipFileManager {
         File filename = new File(FILE_PATH);
 
         try (Scanner scanner = new Scanner(filename)) {
-            String name = scanner.nextLine();
-            String address = scanner.nextLine();
-            String number = scanner.nextLine();
+            if (scanner.hasNextLine()) {
+                String dealerInformation = scanner.nextLine();
+                String[] dealerData = dealerInformation.split(",");
 
-            dealership = new Dealership(name, address, number);
+                // 0 - id, 1 - name, 2 - address, 3 - city, 4 - state, 5 - zipcode, 6 - phone number
+
+                String name = dealerData[1];
+                String address = dealerData[2];
+                String number = dealerData[6];
+
+                dealership = new Dealership(name, address, number);
+            }
 
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
@@ -28,16 +35,17 @@ public class DealershipFileManager {
 
                 // vin,dealer,id,year,make,model,type, color,miles,price
                 int vin = Integer.parseInt(columns[0]);
-                int dealer = Integer.parseInt(columns[1]);
-                String make = columns[2];
-                String model = columns[3];
-                int year = Integer.parseInt(columns[4]);
-                double price = Double.parseDouble(columns[5]);
+                int dealerID = Integer.parseInt(columns[1]);
+                int year = Integer.parseInt(columns[2]);
+                String make = columns[3];
+                String model = columns[4];
+                String type = columns[5];
                 String color = columns[6];
-                int mileage = Integer.parseInt(columns[7]);
-                String type = columns[8];
+                int miles = Integer.parseInt(columns[7]);
+                double price = Double.parseDouble(columns[8]);
 
-                Vehicle vehicle = new Vehicle(vin, dealer, make, model, year, price, color, mileage, type);
+
+                Vehicle vehicle = new Vehicle(vin, dealerID, year,  make,  model, type,  color,  miles,  price);
                 vehicles.add(vehicle);
             }
 

@@ -4,9 +4,14 @@ import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
-Dealership dealership = new Dealership("My Dealership", "123 Car Wonderland", "333-444-7777");
-        UserInterface user = new UserInterface(dealership);
-        user.display();
+
+        DealershipFileManager fileManager = new DealershipFileManager();
+        Dealership dealership = fileManager.getDealership();
+
+        UserInterface userInterface = new UserInterface(dealership);
+        userInterface.display();
+    }
+}
 
 
 
@@ -18,10 +23,3 @@ Dealership dealership = new Dealership("My Dealership", "123 Car Wonderland", "3
         // quit
 
 
-
-
-
-    }
-
-
-    }
