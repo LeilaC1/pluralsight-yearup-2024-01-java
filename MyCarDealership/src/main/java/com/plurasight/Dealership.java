@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Dealership {
-    private static final String FILE_PATH = "data/vehicles.csv";
+    private static final String FILE_PATH = "data/inventory.csv";
 
     private String name;
     private String address;
@@ -32,34 +32,84 @@ public class Dealership {
 
     // other methods
     // public Arraylist<Vehicle>??
-    public double getVehiclesByPrice() {
-        return 0;
+    public ArrayList<Vehicle> getVehiclesByPrice(double minPrice, double maxPrice) {
+        ArrayList<Vehicle> vehiclesInRange = new ArrayList<>();
+
+        for (Vehicle vehicle : vehicles) {
+            double price = vehicle.getPrice();
+            if (price >= minPrice && price <= maxPrice) {
+                vehiclesInRange.add(vehicle);
+            }
+        }
+
+        return vehiclesInRange;
     }
 
-    public String getVehiclesByMakeModel() {
-        return null;
+    public String getVehiclesByMakeModel(String make, String model) {
+        ArrayList<Vehicle> matchingVehicles = new ArrayList<>();
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getMake().equalsIgnoreCase(make) && vehicle.getModel().equalsIgnoreCase(model)) {
+                matchingVehicles.add(vehicle);
+            }
+        }
 
+        StringBuilder matchingVehicle = new StringBuilder();
+        for (Vehicle vehicle : matchingVehicles) {
+            matchingVehicle.append(vehicle.toString()).append(" ");
+        }
+
+        return matchingVehicle.toString();
     }
 
-    public int getVehiclesByYear() {
-        return 0;
+    public ArrayList<Vehicle> getVehiclesByYear(int year) {
+        ArrayList<Vehicle> matchingVehicles = new ArrayList<>();
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getYear() == year) {
+                matchingVehicles.add(vehicle);
+            }
+        }
 
+        return matchingVehicles;
     }
 
-    public String getVehiclesByColor() {
-        return null;
+    public ArrayList<Vehicle> getVehiclesByColor(String color) {
+        ArrayList<Vehicle> matchingVehicles = new ArrayList<>();
 
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getColor().equalsIgnoreCase(color)) {
+                matchingVehicles.add(vehicle);
+            }
+        }
+
+        return matchingVehicles;
     }
 
-    public int getVehiclesByMileage() {
-        return 0;
+    public ArrayList<Vehicle> getVehiclesByMileage(int maxMileage) {
+        ArrayList<Vehicle> matchingVehicles = new ArrayList<>();
 
+        // Iterate through the vehicles to find matches
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getMiles() <= maxMileage) {
+                matchingVehicles.add(vehicle);
+            }
+        }
+
+        return matchingVehicles;
     }
 
-    public String getVehiclesByType() {
-        return null;
 
+    public ArrayList<Vehicle> getVehiclesByType(String type) {
+        ArrayList<Vehicle> matchingVehicles = new ArrayList<>();
+
+        for (Vehicle vehicle : vehicles) {
+            if (vehicle.getType().equalsIgnoreCase(type)) {
+                matchingVehicles.add(vehicle);
+            }
+        }
+
+        return matchingVehicles;
     }
+
 
     public String getAllVehicles() {
         return null;
@@ -67,10 +117,10 @@ public class Dealership {
     }
 
     public void addVehicle(Vehicle vehicle) {
-       // vehicles.add(vehicle);
+        vehicles.add(vehicle);
     }
 
     public void removeVehicles() {
-        // vehicles.remove();
+      //   vehicles.remove();
     }
 }

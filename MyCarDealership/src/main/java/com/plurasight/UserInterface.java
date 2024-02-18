@@ -92,27 +92,110 @@ public class UserInterface {
 
 
     public void processGetByPriceRequest() {
+            Scanner scanner = new Scanner(System.in);
 
-    }
+//prompt
+            System.out.println("Enter the minimum price: ");
+            double minPrice = scanner.nextDouble();
+
+            System.out.println("Enter the maximum price: ");
+            double maxPrice = scanner.nextDouble();
+
+            ArrayList<Vehicle> vehiclesInRange = dealership.getVehiclesByPrice(minPrice, maxPrice);
+
+            // display the vehicles
+            if (vehiclesInRange.isEmpty()) {
+                System.out.println("No vehicles found.");
+            } else {
+                System.out.println("Vehicles within the specified price range: ");
+                for (Vehicle vehicle : vehiclesInRange) {
+                    System.out.println(vehicle);
+                }
+            }
+        }
 
     public void processGetByMakeModelRequest() {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Enter the make of the vehicle: ");
+        String make = scanner.nextLine();
+
+        System.out.println("Enter the model of the vehicle: ");
+        String model = scanner.nextLine();
+
+        String result = dealership.getVehiclesByMakeModel(make, model);
+
+        System.out.println(result);
     }
 
     public void processGetByYearRequest() {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Enter the vehicles year:");
+        int year = scanner.nextInt();
+
+        ArrayList<Vehicle> vehiclesForYear = dealership.getVehiclesByYear(year);
+
+        if (vehiclesForYear.isEmpty()) {
+            System.out.println("No vehicles found.");
+        } else {
+            System.out.println("Vehicles for the specified year: ");
+            for (Vehicle vehicle : vehiclesForYear) {
+                System.out.println(vehicle);
+            }
+        }
     }
 
     public void processGetByColorRequest() {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Enter the color: ");
+        String color = scanner.nextLine();
+        ArrayList<Vehicle> vehiclesForColor = dealership.getVehiclesByColor(color);
+
+        if (vehiclesForColor.isEmpty()) {
+            System.out.println("No vehicles found.");
+        } else {
+            System.out.println("Vehicles for the specified color: ");
+            for (Vehicle vehicle : vehiclesForColor) {
+                System.out.println(vehicle);
+            }
+        }
     }
 
     public void processGetByMileageRequest() {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Enter the maximum mileage: ");
+        int maxMileage = scanner.nextInt();
+
+        ArrayList<Vehicle> vehiclesByMileage = dealership.getVehiclesByMileage(maxMileage);
+
+        if (vehiclesByMileage.isEmpty()) {
+            System.out.println("No vehicles found.");
+        } else {
+            System.out.println("Vehicles within the specified mileage: ");
+            for (Vehicle vehicle : vehiclesByMileage) {
+                System.out.println(vehicle);
+            }
+        }
     }
 
     public void processGetByVehicleTypeRequest() {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Enter a vehicle type (SUV, Truck, Hybrid, Sedan, Electric, Hatchback): ");
+        String type = scanner.nextLine();
+        ArrayList<Vehicle> vehiclesByType = dealership.getVehiclesByType(type);
+
+        if (vehiclesByType.isEmpty()) {
+            System.out.println("No vehicles found.");
+        } else {
+            System.out.println("Vehicles of the specified type: ");
+            for (Vehicle vehicle : vehiclesByType) {
+                System.out.println(vehicle);
+            }
+        }
     }
 
     public void processGetAllVehiclesRequest() {
