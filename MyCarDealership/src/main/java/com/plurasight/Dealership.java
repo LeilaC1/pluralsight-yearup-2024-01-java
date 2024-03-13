@@ -118,9 +118,11 @@ public class Dealership {
 
     public void addVehicle(Vehicle vehicle) {
         vehicles.add(vehicle);
+
     }
 
-    public void removeVehicles() {
-      //   vehicles.remove();
+    public void removeVehicle(Vehicle vehicle) {
+        vehicles.remove(vehicle);
     }
+
 }

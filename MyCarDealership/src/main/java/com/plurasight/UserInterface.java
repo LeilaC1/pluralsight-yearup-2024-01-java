@@ -204,11 +204,56 @@ public class UserInterface {
     }
 
     public void processAddVehicleRequest() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter VIN:");
+        int vin = scanner.nextInt();
+        System.out.println("Enter dealer ID:");
+        int dealerId = scanner.nextInt();
+        System.out.println("Enter year:");
+        int year = scanner.nextInt();
+        System.out.println("Enter make:");
+        String make = scanner.next();
+        System.out.println("Enter model:");
+        String model = scanner.next();
+        System.out.println("Enter type:");
+        String type = scanner.next();
+        System.out.println("Enter color:");
+        String color = scanner.next();
+        System.out.println("Enter miles:");
+        int miles = scanner.nextInt();
+        System.out.println("Enter price:");
+        double price = scanner.nextDouble();
+
+        Vehicle newVehicle = new Vehicle(vin, dealerId, year, make, model, type, color, miles, price);
+        dealership.addVehicle(newVehicle);
+        System.out.println("vehicle added!");
 
     }
 
     public void processRemoveVehicleRequest() {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Enter VIN of the vehicle to remove:");
+        int vinToRemove = scanner.nextInt();
+
+        //find
+
+        Vehicle vehicleToRemove = null;
+        for (Vehicle vehicle : dealership.getVehicles()) {
+            if (vehicle.getVin() == vinToRemove) {
+                vehicleToRemove = vehicle;
+                break;
+            }
+        }
+    //remove
+
+      if (vehicleToRemove != null) {
+        dealership.removeVehicle(vehicleToRemove);
+        System.out.println("Vehicle with VIN " + vinToRemove + " removed successfully!");
+    } else {
+        System.out.println("Vehicle with VIN " + vinToRemove + " not found in inventory.");
     }
 
+}
 }
